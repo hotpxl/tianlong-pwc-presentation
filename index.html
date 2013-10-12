@@ -455,13 +455,7 @@ function linkify( selector ) {
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
     <script src="js/jquery-2.0.3.min.js"></script>
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-    </script>
-    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
     <script>
-
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
@@ -469,12 +463,16 @@ function linkify( selector ) {
         progress: true,
         history: true,
         center: true,
-
         theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
         transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
-
+        math: {
+          mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+          config: 'TeX-AMS-MML_HTMLorMML'
+        },
         // Optional libraries used to extend on reveal.js
         dependencies: [
+          // Enable LaTeX support
+          { src: 'plugin/math/math.js', async: true },
           { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
           { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
